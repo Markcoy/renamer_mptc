@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Cii from "./components/Cii";
+import Mptsouth from "./components/Mptsouth";
+
+import Nlex from "./components/Nlex";
+import Layout from "./shared/Layout";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Layout>
+                {" "}
+                <Nlex />
+              </Layout>
+            }
+          />
+          <Route
+            path="/south"
+            element={
+              <Layout>
+                {" "}
+                <Mptsouth />
+              </Layout>
+            }
+          />
+          <Route
+            path="/CII"
+            element={
+              <Layout>
+                {" "}
+                <Cii />
+              </Layout>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
